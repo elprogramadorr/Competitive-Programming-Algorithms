@@ -118,6 +118,7 @@ https://codeforces.com/contest/1157/problem/F  (binary search)
 https://codeforces.com/problemset/problem/1144/E (sistema de numeración)
 https://codeforces.com/contest/1156/problem/E  (dsu small to large tree)
 https://codeforces.com/contest/1619/problem/H  (re bueno sqrt)
+https://codeforces.com/gym/103371/problem/K (topo sort)
 
 //truco en DSU
 
