@@ -13,12 +13,12 @@
 #define mp make_pair
 using namespace std;
 
-int _find(ll &k, ll n){
+int _find(ll &k,ll n){
     if(n==1)return 0;
     n--;
     int ind;
     ll n2=n;
-    while(k>= n2 && n>1) {
+    while(k>=n2&&n>1) {
         n2*=(n-1);
         n--;
     }
@@ -26,13 +26,11 @@ int _find(ll &k, ll n){
     k%=n2;
     return ind;
 }
- 
- 
 vi kthPermutation(ll n, ll k){
     vi Ans;
-    set <int> st;
-    for (int i = 1; i <= n; i++)st.insert(i);
-    auto it = st.begin();
+    set<int>st;
+    for (int i=1;i<=n;i++)st.insert(i);
+    auto it=st.begin();
     k--;
     for(int i=0;i<n;i++) {
         int index=_find(k,n-i);
