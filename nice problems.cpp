@@ -120,6 +120,7 @@ https://codeforces.com/contest/1156/problem/E  (dsu small to large tree)
 https://codeforces.com/contest/1619/problem/H  (re bueno sqrt)
 https://codeforces.com/gym/103371/problem/K (topo sort)
 http://www.usaco.org/index.php?page=viewproblem2&cpid=970 (HLD)
+https://codeforces.com/contest/429/problem/D (closest pair of points)
 
 //truco en DSU
 
