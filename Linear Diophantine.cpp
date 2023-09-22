@@ -5,7 +5,7 @@ ll div_ceil(ll a, ll b, bool ceil){
 	if(!pos) ans*=-1;
 	return ans;
 }
- 
+// |x|+|y| es minimo y x es minimo 
 ll gcd_ext(ll a, ll b, ll &xo, ll &yo){
 	if(b==0){
 		xo = 1, yo = 0;
@@ -18,7 +18,7 @@ ll gcd_ext(ll a, ll b, ll &xo, ll &yo){
 	return g;
 }
 //sol return (y) for b in ax + by = c 
-//sol retorna minimo x + y or min |x|+|y| es como extendido de euclides
+//sol retorna minimo x + y creo
 ll sol(ll a, ll b, ll c){
 	ll xo, yo;
 	ll g = gcd_ext(a,b,xo,yo);
