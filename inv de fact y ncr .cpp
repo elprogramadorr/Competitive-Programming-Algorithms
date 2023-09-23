@@ -85,3 +85,24 @@ int main()
     return 0;
 }
 // la vida es dura pero mas dura mi verdura
+
+
+
+// este precalculando
+const int tam=2e5+10;
+const int MOD=998244353;
+const int N=tam;
+ll fac[N], rev[N], revfac[N];
+
+void init(){
+    fac[0] = 1;
+    for(int i = 1; i < N; i++) fac[i] = fac[i - 1] * i % MOD;
+    rev[1] = 1;
+    for(int i = 2; i < N; i++) rev[i] = MOD - (MOD / i) * rev[MOD % i] % MOD;
+    revfac[0] = 1;
+    for(int i = 1; i < N; i++) revfac[i] = revfac[i - 1] * rev[i] % MOD;
+}
+ll C(int n, int m) {
+    if (m < 0 || m > n) return 0;
+    return fac[n] * revfac[m] % MOD * revfac[n - m] % MOD;
+}
