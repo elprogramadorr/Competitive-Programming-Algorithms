@@ -144,11 +144,6 @@ Si el diámetro de un arbol es dis(A,B) la distancia maxima para un nodo c es di
 
 Resulta facil asignar 0s y 1s a aristas de u arbol si es que trato de satisfacer xor(1,nodo) = 0 o xor(1,nodo) = 1 y y poner un 0 o 1  no me limita de ninguna forma
 
-
-Problema 
-Dado un arreglo n=1e5. y Q queries Q=1e5.
-cada query es un rango [a,b]. Dividir este arreglo [a,b] en la minima cantidad de subarreglos tal que el gcd de cada subarreglo sea mayor a 1 y que cada elemento pertenezca a un subarrelgo.
-
 https://codeforces.com/blog/entry/69186
 https://esubmovie.com/the-shining-1980/
 https://www.youtube.com/watch?v=yyZbqExWWZM (flujos)
