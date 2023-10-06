@@ -2,7 +2,7 @@
 //a a a a a a
 //1 2 3 3 2 1   f = 0 impar
 //0 1 2 3 2 1   f = 1 par
-void manacher(string &s, int f, int, vi &d){
+void manacher(string &s, int f, vi &d){
     int l=0, r=-1, n=s.size();
     d.assign(n,0);
     for(int i=0; i<n; i++){
