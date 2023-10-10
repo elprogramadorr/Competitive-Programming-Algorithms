@@ -1,7 +1,8 @@
-#define int long long
 #define vi vector<int>
 #define sz(x) (int)x.size()
 #define all(x) x.begin(),x.end()
+#define S second
+#define F first
 #define rep(i,a,b) for(int i=a;i<b;i++)
 using namespace std;
 
@@ -28,9 +29,37 @@ struct SuffixArray{
 		for (int i = 0, j; i < n - 1; lcp[rank[i++]] = k)
 			for (k && k--, j = sa[rank[i] - 1];
 					s[i + k] == s[j + k]; k++);
-    
     } 
+	int st[(1<<20)][20];	
+	void initST(){
+		int n = sz(lcp);
+		for(int i=0;i<n;i++)st[i][0] = lcp[i];
+		for(int j=0;j<20;j++){
+			for(int i=0;i+(1<<j)<=n;i++){
+				st[i][j+1] = min(st[i][j],st[i+(1<<j)][j]);
+			}
+		}
+	}
+	int RMQ(int izq, int der){
+		int k = 31 - __builtin_clz(der-izq+1);
+		return min(st[izq][k],st[der-(1<<k)+1][k]);
+	}
+	int getLCP(int izq, int der){
+		if(izq==der)return sz(s)-izq;
+		izq=rank[izq],der=rank[der];
+		if(izq>der)swap(izq,der);
+		return RMQ(izq+1,der);
+	}
 };
+// compare substring A and B
+bool cmp(pair<int,int>A, pair<int,int> B){
+	int Q=SA.getLCP(A.first,B.first);
+	if(Q>=min(A.S-A.F+1,B.S-B.F+1)){
+		if(A.S-A.F==B.S-B.F)return A.F<B.F;
+		return A.S-A.F<B.S-B.F;
+	}
+	return SA.rank[A.F]<SA.rank[B.F];
+}
 //      012345  6
 //      ababba  #
 // sa   = 6 5 0 2 4 1 3
