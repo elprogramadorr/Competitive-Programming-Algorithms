@@ -1,3 +1,4 @@
+// pf[i] = longest proper prefix of s[0..i] which is also a suffix of it
 vi  prefix_function(string &s) {
     int n = s.size();
     vi pf(n);
@@ -9,6 +10,7 @@ vi  prefix_function(string &s) {
     }
     return pf;
 }
+// numero de ocurrencias de p en s
 int kmp(string &s, string &p) {
     int n = s.size(), m = p.size(), cnt = 0;
     vector<int> pf = prefix_function(p);
