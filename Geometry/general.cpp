@@ -42,3 +42,31 @@ double calcular_H(Point a, Point b, Point P){
     double H=area/disAB;
     return H;
 }
+
+bool check_segment_intersection(Point a1, Point a2, Point b1, Point b2){
+	// parallel case
+	if(cross(a2-a1,b2-b1)==0){
+		if(turn(a1,a2,b1)==0){
+			for(int i=0;i<2;i++){
+				if(max(a1.x,a2.x)<min(b1.x,b2.x) || max(a1.y,a2.y)<min(b1.y,b2.y)){
+					return false;
+				}
+				swap(a1,b1);
+				swap(a2,b2);
+			}
+			return true;
+		}
+		return false;
+	}
+	// no parallel case
+	for(int i=0;i<2;i++){
+		ll s1=turn(a1,a2,b1);
+		ll s2=turn(a1,a2,b2);
+		if((s1<0 && s2<0) || (s1>0 && s2>0)){
+			return false;
+		}
+		swap(a1,b1);
+		swap(a2,b2);
+	}
+	return true;
+}
