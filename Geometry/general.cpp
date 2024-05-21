@@ -22,7 +22,7 @@ vector<Point> convex_hull(vector<Point> p){
     for(int i = 0; i < 2; i++) {
         int start = ch.size();
         for(auto &a : p) {
-            // if colineal are needed, use < and remove repeated points
+            // if colineal are needed, use < and first remove repeated points in p
             while(ch.size() >= start+2 && turn(ch[ch.size()-2], ch.back(), a) <= 0)
                 ch.pop_back();
             ch.push_back(a);
