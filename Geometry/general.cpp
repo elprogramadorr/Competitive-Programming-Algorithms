@@ -13,24 +13,24 @@ ll cross(const Point &A, const Point &B) { return A.x*B.y - A.y*B.x; }
 ll turn(const Point &A, const Point &B, const Point &C) { return cross(B-A,C-A); }
 ll dist2(const Point &A, const Point &B) { return dot(A-B,A-B); }
  
+// c-clockwise and excluding collinear 
 vector<Point> convex_hull(vector<Point> p){
+    if(p.size()<=1)return p; // ojo con CH<=2
     sort(p.begin(), p.end());
     vector<Point> ch;
     ch.reserve(p.size()+1);
-    for(int it = 0; it < 2; it++) {
+    for(int i = 0; i < 2; i++) {
         int start = ch.size();
         for(auto &a : p) {
-            /// if colineal are needed, use < and remove repeated points
-            while(ch.size() >= start+2 && turn(ch[ch.size()-2], ch.back(), a) < 0)
+            // if colineal are needed, use < and remove repeated points
+            while(ch.size() >= start+2 && turn(ch[ch.size()-2], ch.back(), a) <= 0)
                 ch.pop_back();
             ch.push_back(a);
         }
         ch.pop_back();
         reverse(p.begin(), p.end());
     }
- 
     if(ch.size() == 2 && ch[0] == ch[1]) ch.pop_back();
-    /// cuidado con convex hull < 3
     return ch;
 }
  
