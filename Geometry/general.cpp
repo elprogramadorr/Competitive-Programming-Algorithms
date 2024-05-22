@@ -33,6 +33,16 @@ vector<Point> convex_hull(vector<Point> p){
     if(ch.size() == 2 && ch[0] == ch[1]) ch.pop_back();
     return ch;
 }
+
+// angulo entre vector a y b
+double angle(Point a, Point b){
+    // θ = cos-1( (a · b) / (|a| * |b|) )
+    double aV = sqrt(dot(a,a));
+    double bV = sqrt(dot(b,b));
+    double resRad = acos(dot(a,b)/(aV*bV)); // radianes
+    double resDeg = resRad * 180.0 / acos(-1);
+    return resDeg;
+}
  
 double calcular_H(Point a, Point b, Point P){
     //(a,b) * H = area paralelogramo
