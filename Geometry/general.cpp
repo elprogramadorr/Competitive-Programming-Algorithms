@@ -33,6 +33,7 @@ vector<Point> convex_hull(vector<Point> p){
     if(ch.size() == 2 && ch[0] == ch[1]) ch.pop_back();
     return ch;
 }
+// si usas para hallar la parte baja del ch añadir (minx,maxy+1) y (maxx,maxy+1)
 
 // angulo entre vector a y b
 double angle(Point a, Point b){
