@@ -1,3 +1,12 @@
+/*
+La altura del Centroid Tree es log(N).
+El camino entre cualquier par de nodos (A,B) pasa por un centroide ancestro de ambos (LCA en el Centroid Tree).
+Para problemas donde se hace update(nodo) y query(nodo). Minimizando algo por ejemplo, entonces solo actualizas los log(N) ancestros de nodo.
+y para query(nodo) preguntas por cada ancestro de nodo, de esta forma revisas todos los caminos entre (nodo, algun otro nodo)
+
+Time Complexity: O(N log(N))
+*/
+
 const int tam=200005;
 vi G[tam];
 int del[tam],sz[tam];
